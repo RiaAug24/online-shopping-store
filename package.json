@@ -4,8 +4,7 @@
   "description": "Online Shopping Store website (Unofficial)",
   "main": "app.js",
   "scripts": {
-    "build": "tailwindcss -i ./public/styles/input.css -o ./public/styles/main.css",
-    "watch": "tailwindcss -i ./public/styles/input.css -o ./public/styles/main.css --watch"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +17,10 @@
   },
   "homepage": "https://github.com/RiaAug24/online-shopping-store#readme",
   "devDependencies": {
-    "tailwindcss": "^3.4.10"
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
   }
 }
