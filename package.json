@@ -1,0 +1,23 @@
+{
+  "name": "online-shopping-store",
+  "version": "1.0.0",
+  "description": "Online Shopping Store website (Unofficial)",
+  "main": "app.js",
+  "scripts": {
+    "build": "tailwindcss -i ./public/styles/input.css -o ./public/styles/main.css",
+    "watch": "tailwindcss -i ./public/styles/input.css -o ./public/styles/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RiaAug24/online-shopping-store.git"
+  },
+  "author": "Riyaz Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RiaAug24/online-shopping-store/issues"
+  },
+  "homepage": "https://github.com/RiaAug24/online-shopping-store#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+  }
+}
