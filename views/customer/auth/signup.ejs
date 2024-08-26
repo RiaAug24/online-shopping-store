@@ -1,0 +1,86 @@
+<%- include('../includes/head', {title: 'SignUp'}) %>
+<link rel="stylesheet" href="/styles/form.css">
+<link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <%- include('../includes/header') %>
+    <main>
+        
+        <form action="" method="">
+            <h1 class="heading">Create a New Account</h1>
+             <p>
+                <label for="emailid">Enter an Email id</label>
+                <input 
+                type="email"
+                name="emailid" 
+                id="emailid" 
+                title="Please enter your Email Id"
+                required>
+            </p>
+            <p>
+                <label for="confirm-email">Confirm your Email id</label>
+                <input 
+                type="email" 
+                name="confirm-email" 
+                id="confirm-email" 
+                title="Please retype your Email"
+                required>
+            </p>
+            <p>
+                <label for="password">Enter a password</label>
+                <input 
+                type="password" 
+                name="password" 
+                id="password" 
+                title="Please enter a password" 
+                min="6"
+                required>
+            </p>
+            <hr>
+            <p>
+                <label for="fullname">Enter your full name</label>
+                <input
+                 type="text" 
+                 name="fullname" 
+                 id="fullname" 
+                 title="Please enter your name"
+                 required>
+            </p>
+            <p>
+                <label for="street">Street</label>
+                <input 
+                type="text" 
+                name="street" 
+                id="street" 
+                title="Please enter your street name"
+                required>
+            </p>
+            <p>
+                <label for="postal-code">Postal Code</label>
+                <input 
+                type="text" 
+                name="postal-code" 
+                id="postal-code" 
+                title="Please enter postal code of your place" 
+                minlength="5" 
+                maxlength="7"
+                required>
+            </p>
+            <p>
+                <label for="city">City</label>
+                <input 
+                type="text"
+                name="city" 
+                id="city" 
+                title="Please enter your city name" 
+                required>
+            </p>
+            <button class="btn submit-btn">Create Account</button>
+            <p><a id="switch-form" href="/login">Login instead</a></p>
+        </form>
+    </main>
+
+
+
+
+<%- include('../includes/footer') %>

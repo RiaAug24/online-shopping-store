@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --primary-color: rgb(232, 132, 89);
+    --white-color: rgb(244, 243, 245);
+    --lightprimary-color: rgb(246, 192, 157);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: "Quicksand", sans-serif;
+    background-color: rgb(255, 253, 252);
+}
+
+.logo>a {
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--primary-color);
+    text-shadow: 1px 2px 1px rgba(33, 32, 34, 0.85);
+}
+
+.logo>a>span {
+    color: rgba(234, 234, 234, 0.75);
+    font-family: "Rubik", sans-serif;
+}
+
+.btn {
+    font-family: "Noto Sans", sans-serif;
+    border: none;
+    padding: 4px;
+    width: 8rem;
+    height: 3rem;
+    color: var(--white-color);
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    transition: all 100ms ease-out;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.heading {
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    color: var(--primary-color)
+}
+
+a {
+    text-decoration: none;
+}

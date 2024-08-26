@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
+:root {
+    --primary-color: rgb(232, 132, 89);
+    --white-color: rgb(244, 243, 245);
+    --lightprimary-color: rgb(243, 194, 161);
 }

@@ -16,12 +16,12 @@
     "url": "https://github.com/RiaAug24/online-shopping-store/issues"
   },
   "homepage": "https://github.com/RiaAug24/online-shopping-store#readme",
-  "devDependencies": {
-    "nodemon": "^3.1.4"
-  },
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "mongodb": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

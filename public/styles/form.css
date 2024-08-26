@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --primary-color: rgb(232, 132, 89);
+    --white-color: rgb(244, 243, 245);
+    --lightprimary-color: rgb(246, 192, 157);
+}
+
+form {
+    padding: 1.25rem;
+    width: 45rem;
+    box-sizing: border-box;
+    margin: 1rem auto;
+    text-align: center;
+    height: auto;
+    background-color: rgb(245, 244, 243);
+}
+
+form > .heading {
+    margin-bottom: 2rem;
+}
+    
+
+label,
+input {
+    display: block;
+    width: 90%;
+    margin: 0.5rem auto;
+}
+
+input {
+    padding: 8px;
+    outline: none;
+}
+
+hr {
+    width: 100%;
+    margin: 2rem auto;
+    border: none;
+    height: 2.5px;
+    background-color: var(--lightprimary-color);
+}
+#switch-form {
+    color: var(--lightprimary-color);
+    transition: all 200ms ease;
+}
+
+#switch-form:hover {
+    color: var(--primary-color);
+}
+
+form > button {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
