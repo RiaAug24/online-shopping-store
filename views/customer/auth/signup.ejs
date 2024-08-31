@@ -1,13 +1,14 @@
-<%- include('../includes/head', {title: 'SignUp'}) %>
+<%- include('../../shared/includes/head', {title: 'SignUp'}) %>
 <link rel="stylesheet" href="/styles/form.css">
 <link rel="stylesheet" href="/styles/auth.css">
 </head>
 <body>
-    <%- include('../includes/header') %>
+    <%- include('../../shared/includes/header') %>
     <main>
         
-        <form action="" method="">
+        <form action="/signup" method="POST">
             <h1 class="heading">Create a New Account</h1>
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
              <p>
                 <label for="emailid">Enter an Email id</label>
                 <input 
@@ -15,16 +16,16 @@
                 name="emailid" 
                 id="emailid" 
                 title="Please enter your Email Id"
-                required>
+                >
             </p>
             <p>
                 <label for="confirm-email">Confirm your Email id</label>
                 <input 
                 type="email" 
-                name="confirm-email" 
+                name="confirmemail" 
                 id="confirm-email" 
                 title="Please retype your Email"
-                required>
+                >
             </p>
             <p>
                 <label for="password">Enter a password</label>
@@ -34,7 +35,7 @@
                 id="password" 
                 title="Please enter a password" 
                 min="6"
-                required>
+                >
             </p>
             <hr>
             <p>
@@ -44,7 +45,7 @@
                  name="fullname" 
                  id="fullname" 
                  title="Please enter your name"
-                 required>
+                 >
             </p>
             <p>
                 <label for="street">Street</label>
@@ -53,18 +54,18 @@
                 name="street" 
                 id="street" 
                 title="Please enter your street name"
-                required>
+                >
             </p>
             <p>
                 <label for="postal-code">Postal Code</label>
                 <input 
                 type="text" 
-                name="postal-code" 
+                name="postalcode" 
                 id="postal-code" 
                 title="Please enter postal code of your place" 
                 minlength="5" 
                 maxlength="7"
-                required>
+                >
             </p>
             <p>
                 <label for="city">City</label>
@@ -73,8 +74,11 @@
                 name="city" 
                 id="city" 
                 title="Please enter your city name" 
-                required>
+                >
             </p>
+            <div class="form-err">
+                
+            </div>
             <button class="btn submit-btn">Create Account</button>
             <p><a id="switch-form" href="/login">Login instead</a></p>
         </form>
@@ -83,4 +87,4 @@
 
 
 
-<%- include('../includes/footer') %>
+<%- include('../../shared/includes/footer') %>

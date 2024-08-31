@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-    --primary-color: rgb(232, 132, 89);
+    --primary-color: rgb(224, 139, 83);
     --white-color: rgb(244, 243, 245);
-    --lightprimary-color: rgb(246, 192, 157);
+    --lightprimary-color: rgb(236, 188, 156);
+    --black-color: rgb(24, 25, 23);
+    --input-lightbrownbg: rgb(246, 231, 217);
+    --grey-color: rgb(123, 125, 124);
+    --highlight-error: rgb(245, 70, 50);
 }
 
 * {
@@ -13,12 +17,27 @@
 
 
 body {
+    scroll-behavior: smooth;
     font-family: "Quicksand", sans-serif;
-    background-color: rgb(255, 253, 252);
+    background-color: var(--black-color)
+}
+
+main {
+    width: 90%;
+    max-width: 50rem;
+    margin: 6rem auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.logo {
+    margin: 6px;
 }
 
 .logo>a {
-    font-size: 36px;
+    font-size: 48px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: var(--primary-color);
     text-shadow: 1px 2px 1px rgba(33, 32, 34, 0.85);
@@ -27,6 +46,37 @@ body {
 .logo>a>span {
     color: rgba(234, 234, 234, 0.75);
     font-family: "Rubik", sans-serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 4rem;
+    transition: all 200ms ease-in-out;
+}
+
+
+nav>ul {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.15rem;
+}
+
+
+.navlinks>a,
+.navlinks>form>button {
+    border: none;
+    background-color: inherit;
+    font-size: 1.25rem;
+    color: var(--lightprimary-color);
+    transition: all 100ms ease-out;
+}
+
+.navlinks>a:hover, .navlinks>form>button:hover{
+    cursor: pointer;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .btn {
@@ -38,21 +88,138 @@ body {
     color: var(--white-color);
     border-radius: 12px;
     background-color: var(--primary-color);
-    transition: all 100ms ease-out;
+    transition: all 150ms ease-out;
 }
 
 .btn:hover {
     cursor: pointer;
-    background-color: var(--white-color);
-    color: var(--primary-color);
+    filter: brightness(90%);
+    color: var(--grey-color);
     border: 2px solid var(--primary-color);
 }
+
 .heading {
     text-align: center;
     font-family: "Rubik", sans-serif;
-    color: var(--primary-color)
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+#menu-btn {
+    display: none;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.item-count {
+    position: absolute;
+    font-size: 1rem;
+    top: -6px;
+    right: -10px;
 }
 
 a {
     text-decoration: none;
+}
+
+.content-para {
+    color: var(--white-color);
+    font-size: 20px;
+    text-align: center;
+}
+
+.desktop-hide {
+    display: none;
+}
+
+.err-msg {
+    margin: 2rem auto;
+    text-align: center;
+    color: var(--white-color);
+}
+
+.err-msg>p {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+}
+
+.err-msg>.btn>a {
+    color: var(--white-color);
+}
+
+@media (max-width: 624px) {
+    .heading {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 1020px) {
+    .navbar {
+        justify-content: space-between;
+        margin: auto 1rem;
+    }
+
+    .logo>a {
+        font-size: 2.4rem;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .heading {
+        font-size: 2.25rem;
+    }
+
+    #menu-btn {
+        color: var(--white-color);
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .desktop-navs {
+        display: none;
+    }
+
+    .desktop-hide {
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .navlinks>a, .navlinks>form>button {
+        color: var(--white-color);
+        font-size: 1.15rem;
+    }
+
+    .navlinks>a:hover, .navlinks>form>button:hover {
+        color: var(--grey-color);
+        border-bottom: 2px solid var(--grey-color);
+    }
+
+
+
+    .desktop-hide>nav>ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 6rem;
+        justify-content: space-between;
+        padding: 24px;
+        gap: 45px;
+    }
+
+    #close-btn {
+        color: var(--white-color);
+        cursor: pointer;
+        text-align: right;
+        margin: 1rem;
+        font-size: 2rem;
+    }
+
 }

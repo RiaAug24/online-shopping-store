@@ -1,0 +1,70 @@
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <a href="">Acade<span>Store</span></a>
+    </div>
+    <nav class="mobile-hide">
+      <ul>
+        <% if(locals.isAuth) { %>
+
+        <li class="navlinks">
+          <form action="/logout" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <button>Logout</button>
+          </form>
+        </li>
+        <% } %> <% if (!locals.isAuth) { %>
+        <li class="navlinks"><a href="/signup">SignUp</a></li>
+        <li class="navlinks"><a href="/login">Login</a></li>
+        <% } %>
+
+        <li class="navlinks"><a href="/admin">Admin</a></li>
+        <li class="navlinks"><a href="/products">Browse Products</a></li>
+        <li class="navlinks">
+          <a href="">
+            <p class="cart-icon">
+              <i class="ri-shopping-cart-line"></i
+              ><span class="item-count">0</span>
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="menu-btn">
+      <i class="ri-menu-3-line"></i>
+    </div>
+  </div>
+  <div class="desktop-hide">
+    <div id="close-btn">
+      <i class="ri-close-large-line"></i>
+    </div>
+    <nav>
+      <ul>
+        <% if(locals.isAuth) { %>
+
+        <li class="navlinks">
+          <form action="/logout" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <button>Logout</button>
+          </form>
+        </li>
+        <% } %> <% if (!locals.isAuth) { %>
+        <li class="navlinks"><a href="/signup">SignUp</a></li>
+        <li class="navlinks"><a href="/login">Login</a></li>
+        <% } %>
+
+        <li class="navlinks"><a href="/admin">Admin</a></li>
+        <li class="navlinks"><a href="/products">Browse Products</a></li>
+        <li class="navlinks">
+          <a href="">
+            <p class="cart-icon">
+              <i class="ri-shopping-cart-line"></i
+              ><span class="item-count">0</span>
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
