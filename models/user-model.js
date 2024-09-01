@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 
 const db = require("../data/database");
 
+
 class User {
   constructor(email, password, fullname, street, postal, city) {
     this.email = email;

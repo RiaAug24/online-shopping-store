@@ -1,7 +1,7 @@
 const User = require("../models/user-model");
 const authUtility = require("../utilities/authentication");
 function getSignUpPage(req, res) {
-  res.render("customer/auth/signup");
+  res.render("customer/auth/signup", { error: "" });
 }
 
 let getLoginPage = (req, res) => {
@@ -9,23 +9,27 @@ let getLoginPage = (req, res) => {
 };
 
 let signUp = async (req, res) => {
-  const user = new User(
-    req.body.emailid,
-    req.body.password,
-    req.body.fullname,
-    req.body.street,
-    req.body.postalcode,
-    req.body.city
-  );
+  const { emailid, password, fullname, street, postalcode, city } = req.body;
+
+  const user = new User(emailid, password, fullname, street, postalcode, city);
 
   try {
+    // Check if the user already exists
+    const existingUser = await user.getExistingUserEmail();
+    if (existingUser) {
+      res.render("customer/auth/signup", { error: "User email already exists!" });
+      return;
+    }
+
+    // Proceed with signup
     await user.signup();
+    res.redirect("/login");
   } catch (error) {
     next(error);
     return;
   }
-  res.redirect("/login");
 };
+
 
 async function login(req, res) {
   const user = new User(req.body.emailid, req.body.password);

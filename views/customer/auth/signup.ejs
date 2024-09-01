@@ -5,7 +5,6 @@
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
-        
         <form action="/signup" method="POST">
             <h1 class="heading">Create a New Account</h1>
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
@@ -76,12 +75,22 @@
                 title="Please enter your city name" 
                 >
             </p>
-            <div class="form-err">
-                
-            </div>
+            <% if (error) { %>
+                <div class="form-err">
+                  <p><%= error %></p>
+                </div>
+              <% } else { %>
+                <div class="form-err"></div>
+                <% } %>
+              <!-- Form content goes here -->
+              
+            
+              <!-- Form content goes here -->
+              
             <button class="btn submit-btn">Create Account</button>
             <p><a id="switch-form" href="/login">Login instead</a></p>
-        </form>
+        </form> 
+       
     </main>
 
 

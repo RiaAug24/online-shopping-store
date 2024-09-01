@@ -4,7 +4,8 @@
 
 form {
     padding: 1.25rem;
-    max-width: 45rem;
+    max-width: 40rem;
+    /* max-height: 30rem; */
     margin-inline: auto;
     border: 2px solid var(--lightprimary-color);
     box-sizing: border-box;
@@ -75,10 +76,15 @@ form>button {
     margin-bottom: 0.5rem;
 }
 
+@media (max-width: 990px) {
+    form {
+        max-width: 32rem;
+    }
+}
 
 @media (max-width: 619px) {
     form {
-        width: 80%;
+        max-width: 25rem;
     }
 
 }

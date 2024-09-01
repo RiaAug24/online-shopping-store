@@ -11,7 +11,6 @@ closeBtn.addEventListener("click", () => {
 //Form validation
 
 document.querySelector("form").addEventListener("submit", (e) => {
-  
   let emailElement = document.getElementById("emailid").value.trim();
   let passwordElement = document.getElementById("password").value.trim();
   let confirmEmailElement = document
@@ -27,6 +26,12 @@ document.querySelector("form").addEventListener("submit", (e) => {
   if (emailElement === "" || confirmEmailElement === "") {
     e.preventDefault();
     displayFormErrorElement.innerHTML = `<p>Please enter a valid email address!</p>`;
+    return;
+  }
+
+  if (!validateEmail(emailElement) && !validateEmail(confirmEmailElement)) {
+    e.preventDefault();
+    displayFormErrorElement.innerHTML = `<p>Please include '@' and provide a valid domain!</p>`;
     return;
   }
 
@@ -53,5 +58,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
     displayFormErrorElement.innerHTML = `<p>Please check your city, street and postal code data!</p>`;
     return;
   }
-  
 });
+
+function validateEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
