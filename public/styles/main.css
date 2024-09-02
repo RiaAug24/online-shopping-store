@@ -73,7 +73,8 @@ nav>ul {
     transition: all 100ms ease-out;
 }
 
-.navlinks>a:hover, .navlinks>form>button:hover{
+.navlinks>a:hover,
+.navlinks>form>button:hover {
     cursor: pointer;
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
@@ -103,6 +104,14 @@ nav>ul {
     font-family: "Rubik", sans-serif;
     color: var(--primary-color);
     font-size: 2.5rem;
+}
+
+.navlinks>form>.btn-logout {
+    border: 2px solid var(--lightprimary-color);
+    background-color: var(--grey-color);
+    padding: 0.5rem;
+    width: 6rem;
+    border-radius: 2rem;
 }
 
 #menu-btn {
@@ -150,6 +159,16 @@ a {
     color: var(--white-color);
 }
 
+@media (min-width: 1021px) {
+    li.navlinks {
+        margin-top: 20px;
+    }
+
+    li.logout-navlink {
+        margin: 12px;
+    }
+}
+
 @media (max-width: 624px) {
     .heading {
         font-size: 1.75rem;
@@ -193,17 +212,33 @@ a {
         height: 100%;
     }
 
-    .navlinks>a, .navlinks>form>button {
+    .navlinks>a,
+    .navlinks>form>button {
         color: var(--white-color);
         font-size: 1.15rem;
     }
 
-    .navlinks>a:hover, .navlinks>form>button:hover {
+    .navlinks>a:hover,
+    .navlinks>form>button:hover {
         color: var(--grey-color);
         border-bottom: 2px solid var(--grey-color);
     }
 
 
+    .navlinks>form>.btn-logout {
+        border: 2px solid var(--lightprimary-color);
+        background-color: var(--white-color);
+        color: var(--primary-color);
+        padding: 0.5rem;
+        width: 6rem;
+        border-radius: 2rem;
+    }
+
+    .navlinks>form>.btn-logout:hover {
+        border: 2px solid var(--lightprimary-color);
+        background-color: var(--primary-color);
+        color: var(--white-color);
+    }
 
     .desktop-hide>nav>ul {
         flex-direction: column;
