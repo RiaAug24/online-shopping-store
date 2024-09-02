@@ -15,6 +15,7 @@
                 name="emailid" 
                 id="emailid" 
                 title="Please enter your Email Id"
+                value="<%= enteredData ? enteredData.email : '' %>"
                 >
             </p>
             <p>
@@ -24,6 +25,7 @@
                 name="confirmemail" 
                 id="confirm-email" 
                 title="Please retype your Email"
+                value="<%= enteredData ? enteredData.email : '' %>" 
                 >
             </p>
             <p>
@@ -34,6 +36,7 @@
                 id="password" 
                 title="Please enter a password" 
                 min="6"
+                value="<%= enteredData ? enteredData.password : '' %>" 
                 >
             </p>
             <hr>
@@ -44,6 +47,7 @@
                  name="fullname" 
                  id="fullname" 
                  title="Please enter your name"
+                 value="<%= enteredData ? enteredData.fullname : '' %>" 
                  >
             </p>
             <p>
@@ -53,6 +57,7 @@
                 name="street" 
                 id="street" 
                 title="Please enter your street name"
+                value="<%= enteredData ? enteredData.street : '' %>"
                 >
             </p>
             <p>
@@ -64,6 +69,7 @@
                 title="Please enter postal code of your place" 
                 minlength="5" 
                 maxlength="7"
+                value="<%= enteredData ? enteredData.postalcode : '' %>"
                 >
             </p>
             <p>
@@ -71,7 +77,8 @@
                 <input 
                 type="text"
                 name="city" 
-                id="city" 
+                id="city"
+                value="<%= enteredData ? enteredData.city : '' %>"
                 title="Please enter your city name" 
                 >
             </p>
@@ -92,8 +99,5 @@
         </form> 
        
     </main>
-
-
-
 
 <%- include('../../shared/includes/footer') %>

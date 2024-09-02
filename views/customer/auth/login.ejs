@@ -15,6 +15,7 @@
                 type="email"
                 name="emailid" 
                 id="emailid" 
+                value="<%= enteredData ? enteredData.email : "" %>"
                 title="Please enter your Email Id"
                 required>
             </p>
@@ -25,11 +26,18 @@
                 type="password" 
                 name="password" 
                 id="password" 
+                value="<%= enteredData ? enteredData.password : "" %>"
                 title="Please enter a password" 
                 min="6"
                 required>
             </p>
-            
+            <% if (error) { %>
+                <div class="form-err">
+                  <p><%= error %></p>
+                </div>
+              <% } else { %>
+                <div class="form-err"></div>
+                <% } %>
             <button class="btn submit-btn">Login</button>
             <p>New user? <br><a id="switch-form" href="/signup">Create a new account</a></p>
         </form>
