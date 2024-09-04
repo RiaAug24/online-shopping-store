@@ -5,8 +5,9 @@
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
-        <form action="/signup" method="POST">
-            <h1 class="heading">Create a New Account</h1>
+        <h1 class="heading">Create a New Account</h1>
+        <form class="main-form" action="/signup" method="POST">
+            
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
              <p>
                 <label for="emailid">Enter an Email id</label>

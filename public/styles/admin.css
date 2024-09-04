@@ -1,0 +1,12 @@
+#add-prdt-section {
+    text-align: center;
+    width: 75%;
+    margin: 4rem auto;
+
+}
+
+#add-prdt-section>p>.btn {
+    padding: 0.75rem;
+    width: 92px;
+    margin-block: 1rem;
+}

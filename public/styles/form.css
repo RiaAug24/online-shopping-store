@@ -2,10 +2,9 @@
 
 
 
-form {
+.main-form {
     padding: 1.25rem;
     max-width: 40rem;
-    /* max-height: 30rem; */
     margin-inline: auto;
     border: 2px solid var(--lightprimary-color);
     box-sizing: border-box;
@@ -15,14 +14,15 @@ form {
     background-color: rgba(245, 244, 243, 0.5);
 }
 
-form>.heading {
+.heading {
     margin-bottom: 2rem;
     text-shadow: 1px 1px 1.25px var(--black-color);
 }
 
 
 label,
-input {
+input,
+textarea {
 
     display: block;
     width: 90%;
@@ -34,7 +34,8 @@ label {
     color: var(--white-color);
 }
 
-input {
+input,
+textarea {
     color: var(--black-color);
     background-color: var(--input-lightbrownbg);
     border: 2px solid var(--primary-color);
@@ -42,9 +43,39 @@ input {
     outline: none;
 }
 
-input:focus {
+textarea {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+input:focus,
+textarea:focus {
     background-color: var(--lightprimary-color);
     border: 2px solid var(--primary-color);
+}
+
+input[type="image" i] {
+    display: flex;
+    justify-content: center;
+}
+
+#ctrl-btns {
+    margin: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+.btn-alt {
+    background-color: transparent;
+    border: 2px solid var(--lightprimary-color);
+    color: var(--lightprimary-color);
+}
+
+.btn-alt:hover {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 hr {
@@ -69,11 +100,6 @@ form>.form-err {
     font-weight: bold;
     color: var(--highlight-error);
     text-shadow: 1px 1px 1px var(--black-color);
-}
-
-form>button {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
 }
 
 @media (max-width: 990px) {

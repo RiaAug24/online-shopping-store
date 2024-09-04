@@ -5,7 +5,7 @@
     </div>
     <nav class="mobile-hide">
       <ul>
-        <% if(locals.isAuth) { %> <% } %> <% if (!locals.isAuth) { %>
+        <% if (!locals.isAuth) { %>
         <li class="navlinks"><a href="/signup">SignUp</a></li>
         <li class="navlinks"><a href="/login">Login</a></li>
         <% } %> <% if(locals.isAuth && locals.isAdmin) { %>
@@ -28,13 +28,14 @@
             </p>
           </a>
         </li>
-        <% } %>
+        <% } %> <% if(locals.isAuth) { %>
         <li class="navlinks logout-navlink">
           <form action="/logout" method="POST">
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
             <button class="btn-logout">Logout</button>
           </form>
         </li>
+        <% } %>
       </ul>
     </nav>
 
@@ -48,8 +49,7 @@
     </div>
     <nav>
       <ul>
-        <% if(locals.isAuth) { %>
-        <% } %> <% if (!locals.isAuth) { %>
+       <% if (!locals.isAuth) { %>
         <li class="navlinks"><a href="/signup">SignUp</a></li>
         <li class="navlinks"><a href="/login">Login</a></li>
         <% } %> <% if(locals.isAuth && locals.isAdmin) { %>
@@ -73,12 +73,14 @@
           </a>
         </li>
         <% } %>
-        <li class="navlinks">
-          <form action="/logout" method="POST">
-            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
-            <button class="btn-logout">Logout</button>
-          </form>
-        </li>
+        <% if(locals.isAuth) { %>
+          <li class="navlinks logout-navlink">
+            <form action="/logout" method="POST">
+              <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+              <button class="btn-logout">Logout</button>
+            </form>
+          </li>
+          <% } %>
       </ul>
     </nav>
   </div>
