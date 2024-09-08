@@ -9,8 +9,14 @@
             <h2 class="sub-heading">Manage Products</h2>
             <p><a class="btn" href="/admin/products/new">Add Product</a></p>
         </section>
-        <section>
-            <p class="content-para">Fetching products list...</p>
+        <section id="products-menu">
+            <ul>
+                <% for (const product of products) { %>
+                <li>
+                    <%- include('../includes/product-item', { product: product })%>
+                </li>
+                <% } %>
+            </ul>
         </section>
         
 

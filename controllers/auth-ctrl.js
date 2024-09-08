@@ -3,11 +3,27 @@ const authUtility = require("../utilities/authentication");
 const sessionData = require("../utilities/session-data");
 
 function getSignUpPage(req, res) {
-  res.render("customer/auth/signup", { error: "", enteredData: false });
+  if (res.locals.isAuth) {
+    if (res.locals.isAdmin) {
+      return res.redirect("/admin/products");
+    } else {
+      return res.redirect("/products");
+    }
+  } else {
+    res.render("customer/auth/signup", { error: "", enteredData: false });
+  }
 }
 
 let getLoginPage = (req, res) => {
-  return res.render("customer/auth/login", { error: "", enteredData: false });
+  if (res.locals.isAuth) {
+    if (res.locals.isAdmin) {
+      return res.redirect("/admin/products");
+    } else {
+      return res.redirect("/products");
+    }
+  } else {
+    res.render("customer/auth/login", { error: "", enteredData: false });
+  }
 };
 
 let signUp = async (req, res) => {
@@ -57,22 +73,22 @@ async function login(req, res) {
     password: req.body.password,
   };
 
-  if(enteredData.email.trim() === "" || enteredData.password.trim() === "") {    
+  if (enteredData.email.trim() === "" || enteredData.password.trim() === "") {
     sessionData.showDataToSession(
-    req,
-    {
-      errorMessage: "Please enter valid credentials to login!",
-      ...enteredData,
-    },
-    () => {
-      res.render("customer/auth/login", {
-        error: "Please enter valid credentials to login!",
-        enteredData: enteredData,
-      });
-    }
-  );
-  return;
-}
+      req,
+      {
+        errorMessage: "Please enter valid credentials to login!",
+        ...enteredData,
+      },
+      () => {
+        res.render("customer/auth/login", {
+          error: "Please enter valid credentials to login!",
+          enteredData: enteredData,
+        });
+      }
+    );
+    return;
+  }
   const user = new User(req.body.emailid, req.body.password);
   let existingUser;
   try {

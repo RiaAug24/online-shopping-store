@@ -1,1 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+
+.main-form {
+    padding: 1.25rem;
+    max-width: 40rem;
+    margin-inline: auto;
+    border: 2px solid var(--lightprimary-color);
+    box-sizing: border-box;
+    margin: 1rem auto;
+    text-align: center;
+    height: auto;
+    background-color: rgba(245, 244, 243, 0.5);
+}
+
+.heading {
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 1.25px var(--black-color);
+}
+
+
+label,
+input,
+textarea {
+
+    display: block;
+    width: 90%;
+    font-size: 1rem;
+    margin: 0.5rem auto;
+}
+
+label {
+    color: var(--white-color);
+}
+
+input,
+textarea {
+    color: var(--black-color);
+    background-color: var(--input-lightbrownbg);
+    border: 2px solid var(--primary-color);
+    padding: 8px;
+    outline: none;
+}
+
+textarea {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+input:focus,
+textarea:focus {
+    background-color: var(--lightprimary-color);
+    border: 2px solid var(--primary-color);
+}
+
+input[type="image" i] {
+    display: flex;
+    justify-content: center;
+}
+
+#ctrl-btns {
+    margin: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+.btn-alt {
+    background-color: transparent;
+    border: 2px solid var(--lightprimary-color);
+    color: var(--lightprimary-color);
+}
+
+.btn-alt:hover {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+hr {
+    width: 100%;
+    margin: 2rem auto;
+    height: 2px;
+    border: none;
+    background-color: var(--lightprimary-color);
+}
+
+/* Styling the file input field */
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    filter: brightness(75%);
+}
+
+input[type="file"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+
+#switch-form {
+    color: var(--lightprimary-color);
+    transition: all 200ms ease;
+}
+
+#switch-form:hover {
+    color: var(--primary-color);
+}
+
+
+form>.form-err {
+    font-weight: bold;
+    color: var(--highlight-error);
+    text-shadow: 1px 1px 1px var(--black-color);
+}
+
+@media (max-width: 990px) {
+    form {
+        max-width: 32rem;
+    }
+}
+
+@media (max-width: 619px) {
+    form {
+        max-width: 25rem;
+    }
+
+}

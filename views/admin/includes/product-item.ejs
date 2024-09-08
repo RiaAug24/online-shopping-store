@@ -1,0 +1,8 @@
+<article class="product-card">
+    <h2 class="product-title"><%=product.title%></h2>
+    <img id="product-img" src="<%= product.imageURL %>" alt="<%= product.title %>">
+    <div>
+        <a class="control-link" href="/admin/product/<%= product.id %>">View & Edit</a>
+        <button class="btn btn-red">Delete</button>
+    </div>
+</article>
