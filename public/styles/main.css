@@ -82,21 +82,17 @@ nav>ul {
 
 .btn {
     font-family: "Noto Sans", sans-serif;
-    border: none;
-    padding: 4px;
-    width: 8rem;
-    height: 3rem;
+    border: 1.25px solid var(--primary-color);
+    padding: 6px;
     color: var(--white-color);
-    border-radius: 12px;
+    border-radius: 1.2rem;
     background-color: var(--primary-color);
     transition: all 150ms ease-out;
 }
 
 .btn:hover {
     cursor: pointer;
-    filter: brightness(90%);
-    color: var(--grey-color);
-    border: 0.5px solid var(--primary-color);
+    filter: brightness(75%);
 }
 
 .heading {
@@ -114,7 +110,7 @@ nav>ul {
 
 .navlinks>form>.btn-logout {
     border: 2px solid var(--lightprimary-color);
-    background-color: var(--grey-color);
+    /* background-color: var(--grey-color); */
     padding: 0.5rem;
     width: 6rem;
     border-radius: 2rem;
