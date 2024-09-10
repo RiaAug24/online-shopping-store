@@ -1,0 +1,14 @@
+<%- include('../../shared/includes/head', {title: 'All Products'}) %>
+<link rel="stylesheet" href="/styles/admin.css">
+<link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+        <h1 class="heading">Update product</h1>
+       <%- include('includes/product-form', {submitPath: "/admin/products/" + product._id, imageReq: false,  product: product}) %>
+        
+
+       
+    </main>
+<%- include('../../shared/includes/footer') %>

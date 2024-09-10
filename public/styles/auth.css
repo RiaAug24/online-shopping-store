@@ -23,7 +23,7 @@
 label,
 input,
 textarea {
-
+    font-family: Rubik, sans-serif;
     display: block;
     width: 90%;
     font-size: 1rem;
@@ -32,6 +32,11 @@ textarea {
 
 label {
     color: var(--white-color);
+}
+
+textarea {
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 input,
@@ -43,10 +48,7 @@ textarea {
     outline: none;
 }
 
-textarea {
-    max-width: 90%;
-    margin: 0 auto;
-}
+
 
 input:focus,
 textarea:focus {

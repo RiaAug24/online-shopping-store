@@ -1,5 +1,6 @@
 const db = require("../data/database");
-
+const mongodb = require("mongodb");
+const ObjectId = mongodb.ObjectId;
 class Product {
   constructor(productData) {
     this.title = productData.title;
@@ -23,6 +24,47 @@ class Product {
     };
 
     await db.getDb().collection("products").insertOne(productData);
+  }
+
+  async update(productId) {
+    let prdtId;
+    try {
+      prdtId = new ObjectId(productId);
+      // console.log(prdtId);
+    } catch (error) {
+      error.code = 404;
+      throw error;
+    }
+    await db.getDb().collection("products").updateOne({ _id:prdtId }, {$set: {
+      title: this.title,
+      summary: this.summary,
+      price: this.price,
+      description: this.description,
+      image: this.image
+    }});
+  }
+
+  static async findById(ProductId) {
+    let prdtId;
+    try {
+      prdtId = new ObjectId(ProductId);
+      // console.log(prdtId);
+    } catch (error) {
+      error.code = 404;
+      throw error;
+    }
+    const product = await db
+      .getDb()
+      .collection("products")
+      .findOne({ _id: prdtId });
+    if (!product) {
+      const error = new Error(
+        "Could not find a product with selected product Id."
+      );
+      error.code = "404";
+      throw error;
+    }
+    return product;
   }
 
   static async findAllProducts() {

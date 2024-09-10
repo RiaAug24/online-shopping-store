@@ -37,8 +37,48 @@ let createNewProduct = async (req, res, next) => {
   res.redirect("/admin/products");
 };
 
+let getUpdateProduct = async (req, res, next) => {
+  console.log(req.params.id);
+  try {
+    const product = await Product.findById(req.params.id);
+    // console.log(product);
+    res.render("admin/products/update-product", { product: product });
+    return;
+  } catch (error) {
+    next(error);
+  }
+};
+
+let updateProductDetails = async (req, res, next) => {
+  try {
+    // Fetch the existing product from the database
+    const existingProduct = await Product.findById(req.params.id);
+
+    // Create an object to hold the updated product details
+    const updatedProductData = {
+      ...req.body,
+      // Use the new image if uploaded, otherwise keep the existing image
+      image: req.file ? req.file.filename : existingProduct.image,
+    };
+
+    // Create a new product instance with the updated data
+    const prodId = req.params.id;
+    const product = new Product(updatedProductData);
+
+    // Update the product details in the database
+    await product.update(prodId);
+    // Redirect to the admin products page after successful update
+  } catch (error) {
+    next(error);
+    return;
+  }
+  return res.redirect("/admin/products");
+};
+
 module.exports = {
   getProducts: getProducts,
   getNewProduct: getNewProduct,
   createNewProduct: createNewProduct,
+  getUpdateProduct: getUpdateProduct,
+  updateProductDetails: updateProductDetails,
 };

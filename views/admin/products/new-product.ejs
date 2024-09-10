@@ -6,31 +6,12 @@
     <%- include('../../shared/includes/header') %>
     <main>
         <h1 class="heading">Add a new product</h1>
-        <form class="main-form" action="/admin/products?_csrf=<%= locals.csrfToken %>" method="post" enctype="multipart/form-data">  
-            <p>
-                <label for="title">Title of the Product</label>
-                <input type="text" id="title" name="title" required>
-            </p>
-            <p>
-                <label for="image">Upload the product image</label>
-                <input type="file" id="image" name="image" accept=".jpg, .png, .jpeg">
-            </p>
-            <p>
-                <label for="summary">Add a bried product Summary</label>
-                <input type="text" id="summary" name="summary" maxlength="250">
-            </p>
-            <p>
-                <label for="price">Product price (in Rs)</label>
-                <input type="number" id="price" name="price" min="1" step="1" required>
-            </p>
-            <label for="description">Add the product description</label>
-            <textarea name="description" id="description" maxlength="800" rows="7" required></textarea>
-
-            <p id="ctrl-btns">
-                <button class="btn btn-alt" type="reset">Reset</button>
-                <button class="btn">Save</button>
-            </p>
-        </form>
+       <%- include('includes/product-form', {submitPath: "/admin/products/", imageReq: true, product: {
+        title: "",
+        summary: "",
+        price: "",
+        description: ""
+       }}) %>
         
 
        

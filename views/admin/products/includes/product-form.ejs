@@ -1,0 +1,64 @@
+<form
+  class="main-form"
+  action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <p>
+    <label for="title">Title of the Product</label>
+    <input
+      type="text"
+      id="title"
+      value="<%= product.title  %>"
+      name="title"
+      required
+    />
+  </p>
+  <p>
+    <label for="image">Upload the product image</label>
+    <input type="file" id="image" name="image" accept=".jpg, .png, .jpeg" <% if(imageReq) {  %>
+        required
+      <% } %>/>   
+      <span id="uploaded-image-name" style="font-weight: bold; color: var(--lightprimary-color);">Previously uploaded: <%= product.image.slice(37, product.image.length) %></span>
+    
+      
+    
+  </p>
+  <p>
+    <label for="summary">Add a bried product Summary</label>
+    <input
+      type="text"
+      id="summary"
+      value="<%= product.summary %>"
+      name="summary"
+      maxlength="250"
+    />
+  </p>
+  <p>
+    <label for="price">Product price (in Rs)</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      value="<%= product.price  %>"
+      min="1"
+      step="1"
+      required
+    />
+  </p>
+  <label for="description">Add the product description</label>
+  <textarea
+    name="description"
+    id="description"
+    maxlength="800"
+    rows="7"
+    required
+  >
+<%= product.description  %></textarea
+  >
+
+  <p id="ctrl-btns">
+    <button class="btn btn-alt" type="reset">Reset</button>
+    <button class="btn">Save</button>
+  </p>
+</form>
