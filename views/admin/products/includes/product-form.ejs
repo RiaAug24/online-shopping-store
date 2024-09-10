@@ -16,16 +16,12 @@
   </p>
   <p>
     <label for="image">Upload the product image</label>
-    <input type="file" id="image" name="image" accept=".jpg, .png, .jpeg" <% if(imageReq) {  %>
-        required
-      <% } %>/>   
-      <span id="uploaded-image-name" style="font-weight: bold; color: var(--lightprimary-color);">Previously uploaded: <%= product.image.slice(37, product.image.length) %></span>
-    
-      
-    
+    <input type="file" id="image" name="image" accept=".jpg, .png, .jpeg"
+    <% if(imageReq) {%>
+    required <% } %>/>
   </p>
   <p>
-    <label for="summary">Add a bried product Summary</label>
+    <label for="summary">Add a product Summary</label>
     <input
       type="text"
       id="summary"
@@ -54,8 +50,7 @@
     rows="7"
     required
   >
-<%= product.description  %></textarea
-  >
+<%= product.description  %></textarea>
 
   <p id="ctrl-btns">
     <button class="btn btn-alt" type="reset">Reset</button>

@@ -122,6 +122,8 @@ nav>ul {
     border: 2px solid var(--primary-color);
 }
 
+
+
 #menu-btn {
     display: none;
 }
@@ -168,8 +170,13 @@ a {
 }
 
 @media (min-width: 1021px) {
+
     li.navlinks {
         margin-top: 20px;
+    }
+
+    li.auth-navlinks {
+        margin-top: 0;
     }
 
     li.logout-navlink {
