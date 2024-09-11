@@ -14,12 +14,14 @@
       required
     />
   </p>
+  <div id="img-upload-ctrl">
   <p>
     <label for="image">Upload the product image</label>
     <input type="file" id="image" name="image" accept=".jpg, .png, .jpeg"
     <% if(imageReq) {%>
     required <% } %>/>
   </p>
+  <img src="" alt="selected image"></div>
   <p>
     <label for="summary">Add a product Summary</label>
     <input

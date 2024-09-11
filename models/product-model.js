@@ -73,6 +73,19 @@ class Product {
       return new Product(productDocument);
     });
   }
+
+
+  static async delete(productId) {
+    let prdtId;
+    try {
+      prdtId = new ObjectId(productId);
+      // console.log(prdtId);
+    } catch (error) {
+      error.code = 404;
+      throw error;
+    }
+    await db.getDb().collection("products").deleteOne({ _id: prdtId});
+  }
 }
 
 module.exports = Product;
