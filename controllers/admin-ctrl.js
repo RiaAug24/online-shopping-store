@@ -42,8 +42,12 @@ let getUpdateProduct = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id);
     // console.log(product);
-    res.render("admin/products/update-product", { product: product });
-    return;
+    if (res.locals.isAdmin) {
+      res.render("admin/products/update-product", { product: product });
+      return;
+    } else {
+      return res.status(403).render("shared/403");
+    }
   } catch (error) {
     next(error);
   }

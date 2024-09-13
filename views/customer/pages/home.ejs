@@ -1,9 +1,18 @@
 <%- include('../../shared/includes/head', {title: 'All Products'}) %>
+<link rel="stylesheet" href="/styles/product.css">
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
-       <h1 class="heading">All Products</h1>
-       <p class="content-para">Fetching products list...</p>
+        <h1 class="heading">All Products</h1>
+        <section id="products-menu">
+            <ul>
+                <% for (const product of products) { %>
+                <li>
+                    <%- include('../../shared/includes/product-item', { product: product })%>
+                </li>
+                <% } %>
+            </ul>
+        </section>
     </main>
 <%- include('../../shared/includes/footer') %>
