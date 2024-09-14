@@ -128,8 +128,11 @@ nav>ul {
     display: none;
 }
 
-.cart-icon {
+#cart-icon {
     position: relative;
+}
+
+#cart-icon>p {
     font-size: 1.6rem;
 }
 

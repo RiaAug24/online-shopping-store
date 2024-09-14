@@ -38,7 +38,6 @@
 
 .product-card {
     background-color: var(--grey-color);
-    position: relative;
     border: 1.25px solid var(--lightprimary-color);
     border-radius: 1.25rem;
     text-align: center;
@@ -57,18 +56,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-bottom: 1rem;
-    height: calc(100% - 23.5rem)
+    height: calc(100% - 23.36rem)
 }
 
 .product-price {
-    position: absolute;
+    margin-bottom: 0.25rem;
     font-size: 1.25rem;
-    color: var(--primary-color);
+    color: var(--lightprimary-color);
     text-shadow: 0.25px 0.25px 0.25px rgb(27, 26, 26);
-    bottom: 12.35rem;
-    left: 2rem;
 }
 
 .product-highlights {
@@ -121,7 +118,7 @@
 }
 
 .discount-info {
-    color: var(--primary-color);
+    color: var(--lightprimary-color);
     font-size: 1.75rem;
     font-family: Quicksand, sans-serif;
     text-align: center;
@@ -130,6 +127,7 @@
 
 .prdt-descr {
     font-size: 1.15rem;
+    color: var(--white-color);
     font-family: Noto Sans, sans-serif;
 }
 
@@ -260,9 +258,8 @@
         align-items: center;
     }
 
-   
     #cart-btn {
-        text-align: center;
+        width: 60%;
+        margin-inline: auto;
     }
-
 }

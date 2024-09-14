@@ -1,5 +1,6 @@
-<%- include('../../shared/includes/head', {title: 'All Products'}) %>
+<%- include('../../shared/includes/head', {title: product.title}) %>
 <link rel="stylesheet" href="/styles/product.css">
+<script src="/js/cart-mgmt.js" defer ></script>
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
@@ -16,11 +17,8 @@
     </article>
     </section>
     <div class="product-ctrl">
-
     <p class="prdt-price"><span>MRP: Rs </span><span class="disc-price"><%= product.price %></span> <span class="og-price"> <%= product.price + product.price*(20/100)  %></span></p>
-    <form id="cart-btn" action="">
-        <button class="btn ">Add to cart</button>
-    </form>
+    <button id="cart-btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" class="btn">Add to cart</button>
     </div>
     </main>
 <%- include('../../shared/includes/footer') %>
