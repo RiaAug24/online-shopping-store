@@ -1,5 +1,5 @@
 const { get } = require("mongoose");
-const Product = require("..//models/product-model");
+const Product = require("../models/product-model");
 
 async function getAllProducts(req, res, next) {
   try {
@@ -14,20 +14,21 @@ async function getAllProducts(req, res, next) {
   }
 }
 
-let viewSingleProduct = async (req, res, next) => {
-    try {
-        if (!res.locals.isAdmin) {
-            const product = await Product.findById(req.params.id);
-            res.render("customer/pages/view-single-product", { product: product });
-          } else {
-            res.redirect("/admin/products");}
-    } catch(err) {
-        next(err);
-        return;
+let getProductDetails = async (req, res, next) => {
+  try {
+    if (!res.locals.isAdmin) {
+      const product = await Product.findById(req.params.id);
+      res.render("customer/pages/view-single-product", { product: product });
+    } else {
+      res.redirect("/admin/products");
     }
+  } catch (err) {
+    next(err);
+    return;
+  }
 };
 
 module.exports = {
   getAllProducts: getAllProducts,
-  viewSingleProduct: viewSingleProduct,
+  getProductDetails: getProductDetails,
 };

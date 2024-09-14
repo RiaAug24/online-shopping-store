@@ -47,25 +47,28 @@ class Product {
   static async findById(ProductId) {
     let prdtId;
     try {
-      prdtId = new ObjectId(ProductId);
-      // console.log(prdtId);
+        prdtId = new ObjectId(ProductId);
     } catch (error) {
-      error.code = 404;
-      throw error;
+        error.code = 404;
+        throw error;
     }
     const product = await db
-      .getDb()
-      .collection("products")
-      .findOne({ _id: prdtId });
+        .getDb()
+        .collection("products")
+        .findOne({ _id: prdtId });
+
     if (!product) {
-      const error = new Error(
-        "Could not find a product with selected product Id."
-      );
-      error.code = "404";
-      throw error;
+        const error = new Error(
+            "Could not find a product with selected product Id."
+        );
+        error.code = "404";
+        throw error;
     }
-    return product;
-  }
+    
+    // Use the constructor to create a Product instance
+    return new Product(product);
+}
+
 
   static async findAllProducts() {
     const products = await db.getDb().collection("products").find().toArray();

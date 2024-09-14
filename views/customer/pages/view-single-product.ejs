@@ -1,18 +1,26 @@
-
 <%- include('../../shared/includes/head', {title: 'All Products'}) %>
 <link rel="stylesheet" href="/styles/product.css">
 </head>
 <body>
     <%- include('../../shared/includes/header') %>
     <main>
+        <h1 class="discount-info">Avail discount of 20% on products purchased for next 2 weeks!</h1>
+        <section id="product-view">
         <header>
-            <img src="" alt="">
-            <div id="product-info">
-                <h1><%= product.title %> </h1>
-                <p class="price"><%= product.price %></p>
-                <button class="btn">Add to cart</button>
-            </div>
+            <h1 class="prdt-title"><%= product.title %> </h1>
+            <img id="single-product-img" src="<%= product.imageURL %>" alt="<%= product.title %>">
         </header>
-        <p><%= product.description %>></p>
+        <article class="product-info">
+        <h2 class="title2">Description</h2>
+        <p class="prdt-descr"><%= product.description %></p>
+    </article>
+    </section>
+    <div class="product-ctrl">
+
+    <p class="prdt-price"><span>MRP: Rs </span><span class="disc-price"><%= product.price %></span> <span class="og-price"> <%= product.price + product.price*(20/100)  %></span></p>
+    <form id="cart-btn" action="">
+        <button class="btn ">Add to cart</button>
+    </form>
+    </div>
     </main>
 <%- include('../../shared/includes/footer') %>

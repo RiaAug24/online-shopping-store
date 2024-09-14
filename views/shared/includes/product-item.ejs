@@ -22,7 +22,9 @@
         <div class="product-highlights">
             <p><%= product.summary %></p>
         </div>
-        <p class="control-link"><a href="/products/<%= product.id %>">View</a></p>
+        <form action="/products/<%= product.id %>" method="get" >
+        <button class="btn view-btn">View</button>
+      </form>
         <% } %>
   </div>
 </article>
