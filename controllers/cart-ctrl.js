@@ -19,6 +19,35 @@ let addItemToCart = async (req, res, next) => {
   });
 };
 
+let getCartPage = async (req, res) => {
+  if (!res.locals.isAdmin) {
+    res.render("customer/pages/cart");
+  } else {
+    return res.status(404).render("shared/404");
+  }
+  return;
+};
+
+let updateCartItem = (req, res) => {
+  const cart = res.locals.cart;
+  const updatedItemData = cart.updateItem(
+    req.body.productId,
+    req.body.quantity
+  );
+  req.session.cart = cart;
+
+   res.json({
+    message: "Item Count Updated!",
+    updatedCartData: {
+      newTotQuantity: cart.totalQuantity,
+      newTotPrice: cart.totalPrice,
+      updatedItemPrice: updatedItemData.updatedItemPrice,
+    },
+  });
+};
+
 module.exports = {
   addItemToCart: addItemToCart,
+  getCartPage: getCartPage,
+  updateCartItem: updateCartItem,
 };

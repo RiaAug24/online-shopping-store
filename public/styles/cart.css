@@ -1,0 +1,143 @@
+
+main>hr {
+    margin-block: 4rem;
+    height: 2px;
+    background-color: var(--lightprimary-color);
+
+}
+
+#cart-items {
+    display: grid;
+    width: 100%;
+    height: 75%;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 36rem));
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    /* text-align: center; */
+    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background-color: var(--grey-color);
+    align-items: center;
+    border-radius: 0.75rem;
+    border: 0.5px solid var(--lightprimary-color);
+}
+
+.cart-item>h2 {
+    text-align: left;
+    text-wrap: balance;
+}
+
+.product-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.prdt-img {
+    width: 7rem;
+    height: 6.5rem;
+}
+
+.prdt-cost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prdt-tot-cost {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-wrap: balance;
+    text-shadow: 0.25px 0.25px var(--black-color);
+    color: var(--primary-color);
+}
+
+.cost-per-item {
+    text-wrap: balance;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--lightprimary-color);
+}
+
+.prdt-qty-field {
+    background-color: var(--lightprimary-color);
+    border: none;
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--grey-color);
+    border: 2px solid var(--primary-color);
+}
+
+.prdt-qty-field:focus {
+    color: var(--black-color);
+    background-color: var(--input-lightbrownbg);
+    outline: 2.25px solid var(--primary-color);
+}
+
+.cart-item-mgmt {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+
+#cart-footer {
+    margin: 4rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#cart-footer>p {
+    border: 2px solid var(--lightprimary-color);
+    padding: 2rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+#cart-footer>form {
+    width: 100%;
+}
+ 
+#cart-footer>form>.btn {
+    width: 70%;
+}
+
+@media (max-width: 483px) {
+    .cart-item-mgmt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #cart-footer>p {
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .cost-per-item {
+        font-size: 0.75rem;
+    }
+    
+
+    .prdt-tot-cost {
+        font-size: 1.35rem;
+    }
+
+    #cart-footer>form>.btn {
+        width: 90%;
+    }
+}

@@ -1,0 +1,28 @@
+<article class="cart-item">
+  <h2><%= item.product.title %></h2>
+  <div class="product-highlights">
+    <img
+      class="prdt-img"
+      src="<%= item.product.imageURL %>"
+      alt="<%= item.product.title %>"
+    />
+    <div class="prdt-cost">
+      <p class="prdt-tot-cost">Amount: Rs <%= item.totalPrice %></p>
+      <p class="cost-per-item">Cost per unit: Rs <%= item.product.price %></p>
+    </div>
+  </div>
+  <form
+    class="cart-item-mgmt"
+    data-productid="<%= item.product.id %>"
+    data-csrf="<%= locals.csrfToken %>"
+  >
+    <input
+      class="prdt-qty-field"
+      type="number"
+      value="<%= item.quantity %>"
+      id="item-count-holder"
+      min="0"
+    />
+    <button class="btn">Update</button>
+  </form>
+</article>

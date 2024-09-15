@@ -29,7 +29,6 @@
 #product-img {
     text-align: center;
     width: 20rem;
-    object-fit: cover;
     border-radius: 0.75rem;
     height: 17.5rem;
     margin-block: 1.25rem 0.5rem;
@@ -164,8 +163,6 @@
     max-height: 24rem;
     border: 1.25px solid var(--lightprimary-color);
     border-radius: 0.75rem;
-    box-sizing: border-box;
-    object-fit: cover;
 }
 
 
