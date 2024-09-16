@@ -17,13 +17,19 @@
             <% } %>
         </ul>
         <div id="cart-footer">
-            <% if(locals.cart.items) { %>
-            <p id="total-amount">Total: Rs <%= locals.cart.totalPrice %> </p>
+            <% if(locals.cart) { %>
+            <p id="total-amount">Subtotal: Rs <%= locals.cart.totalPrice %> </p>
             <% } %>
-            <form action="/products" method="get">
-                <button class="btn">Add more products</button>
-            </form>
-           
+            <% if(locals.isAuth) { %>
+                <% if(locals.cart) { %>
+                    <form action="/orders" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                        <button class="btn">Proceed to buy</button>
+                    </form>
+                <% } %>
+            <% } else { %>  
+                <p class="auth-msg"> Login to purchase your items </p>    
+            <% } %>  
         </div>
   
     </main>

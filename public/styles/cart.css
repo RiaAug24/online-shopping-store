@@ -109,7 +109,11 @@ main>hr {
 #cart-footer>form {
     width: 100%;
 }
- 
+
+#cart-footer>.auth-msg {
+    border: none;
+}
+
 #cart-footer>form>.btn {
     width: 70%;
 }

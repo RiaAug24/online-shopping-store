@@ -6,7 +6,7 @@
     --lightprimary-color: rgb(236, 188, 156);
     --black-color: rgb(24, 25, 23);
     --input-lightbrownbg: rgb(246, 231, 217);
-    --grey-color: rgb(123, 125, 124);
+    --grey-color: rgb(90, 90, 90);
     --highlight-error: rgb(245, 70, 50);
 }
 
@@ -177,11 +177,7 @@ a {
     li.navlinks {
         margin-top: 20px;
     }
-
-    li.auth-navlinks {
-        margin-top: 0;
-    }
-
+    
     li.logout-navlink {
         margin: 12px;
     }

@@ -14,6 +14,7 @@ const productsRoutes = require("./routes/products-route");
 const pageRoutes = require("./routes/pages-route");
 const adminRoutes = require("./routes/admin-route");
 const cartRoutes = require("./routes/cart-route");
+const orderRoutes = require("./routes/orders-route");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -36,6 +37,7 @@ app.use(authRoutes); //Evaluates all the incoming request from the auth route
 app.use(productsRoutes);
 app.use("/admin", adminRoutes);
 app.use("/cart", cartRoutes);
+app.use("/orders", orderRoutes);
 app.use((req, res) => {
   res.status(404).render("shared/404");
 });

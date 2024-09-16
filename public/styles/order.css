@@ -1,0 +1,49 @@
+.order-lists {
+    margin: 4rem auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: repeat(autofit, minmax(15rem, 1fr));
+    gap: 4rem;
+}
+
+.order-lists>li {
+    margin: 0;
+    padding: 0;
+}
+
+.order-item {
+    background-color: var(--grey-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.6rem;
+    gap: 0.5rem;
+}
+
+.order-summary {
+    color: var(--white-color);
+}
+
+.order-summary>h2>.order-item-price {
+    color: var(--primary-color);
+    font-family: Rubik, sans-serif;
+}
+
+.order-summary>p {
+    margin-block: 0.7rem 1rem;
+}
+
+.order-summary>p>.badge {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 0.6rem;
+}
+
+.order-details {
+    background-color: var(--lightprimary-color);
+    padding: 0.5rem;
+    border: 2px solid var(--primary-color);
+    color: var(--black-color);
+}
