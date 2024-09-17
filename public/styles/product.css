@@ -60,6 +60,16 @@
     height: calc(100% - 23.36rem)
 }
 
+.control-links>a {
+    color: var(--lightprimary-color);
+}
+
+.control-links>a:hover {
+    color: var(--primary-color);
+    border-bottom: 1.15px solid var(--primary-color);
+}
+
+
 .product-price {
     margin-bottom: 0.25rem;
     font-size: 1.25rem;

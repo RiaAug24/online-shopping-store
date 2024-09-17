@@ -30,8 +30,8 @@ app.use(expressSession(sessionConfig));
 app.use(csrf());
 app.use(validateAuthentication);
 app.use(addCsrfTokenMiddleware);
-app.use(cartMiddleware);
-
+app.use(cartMiddleware.initializeCart);
+app.use(cartMiddleware.updateCartPrices);
 app.use(pageRoutes);
 app.use(authRoutes); //Evaluates all the incoming request from the auth route
 app.use(productsRoutes);

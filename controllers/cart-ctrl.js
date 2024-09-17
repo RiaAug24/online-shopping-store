@@ -36,7 +36,7 @@ let updateCartItem = (req, res) => {
   );
   req.session.cart = cart;
 
-   res.json({
+   return res.json({
     message: "Item Count Updated!",
     updatedCartData: {
       newTotQuantity: cart.totalQuantity,

@@ -1,9 +1,11 @@
 // alert("Linked success!");
 
 const cartItemUpdateForm = document.querySelectorAll(".cart-item-mgmt");
-
 const cartTotalPrice = document.getElementById("total-amount");
 const cartCountBadge = document.querySelectorAll("#cart-icon p .item-count");
+
+const buyProductBtn = document.querySelector("#cart-footer form button");
+
 console.log(cartCountBadge);
 async function updateCartItem(e) {
   e.preventDefault();
@@ -11,6 +13,7 @@ async function updateCartItem(e) {
   const productId = form.dataset.productid;
   const csrfToken = form.dataset.csrf;
   const itemQuantity = form.querySelector(".prdt-qty-field").value;
+  console.log(itemQuantity);
   let response;
   try {
     response = await fetch("/cart/items", {
@@ -42,6 +45,10 @@ async function updateCartItem(e) {
     cartBadge.textContent = responseData.updatedCartData.newTotQuantity;
   }
 
+  if (responseData.updatedCartData.newTotPrice === 0) {
+    buyProductBtn.style.display = "none";
+    cartTotalPrice.style.display = "none";
+  }
   cartTotalPrice.textContent =
     "Total: Rs " + responseData.updatedCartData.newTotPrice;
   if (responseData.updatedCartData.updatedItemPrice === 0) {
@@ -49,6 +56,10 @@ async function updateCartItem(e) {
   }
   cartItemTotPrice.textContent =
     "Amount: Rs " + responseData.updatedCartData.updatedItemPrice;
+
+  if (cartTotalPrice.textContent === 0) {
+    buyProductBtn.style.display = "none";
+  }
 }
 
 for (const formElement of cartItemUpdateForm) {

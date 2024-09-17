@@ -55,6 +55,7 @@ class Order {
   }
 
   static async findById(orderId) {
+    console.log(orderId);
     const order = await db
       .getDb()
       .collection("orders")

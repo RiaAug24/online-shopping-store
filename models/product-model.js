@@ -1,6 +1,5 @@
 const db = require("../data/database");
 const mongodb = require("mongodb");
-const ObjectId = mongodb.ObjectId;
 class Product {
   constructor(productData) {
     this.title = productData.title;
@@ -29,13 +28,13 @@ class Product {
   async update(productId) {
     let prdtId;
     try {
-      prdtId = new ObjectId(productId);
+      prdtId = new mongodb.ObjectId(productId);
       // console.log(prdtId);
     } catch (error) {
       error.code = 404;
       throw error;
     }
-    await db.getDb().collection("products").updateOne({ _id:prdtId }, {$set: {
+    await db.getDb().collection("products").updateOne({ _id: prdtId }, {$set: {
       title: this.title,
       summary: this.summary,
       price: this.price,
@@ -47,7 +46,7 @@ class Product {
   static async findById(ProductId) {
     let prdtId;
     try {
-        prdtId = new ObjectId(ProductId);
+        prdtId = new mongodb.ObjectId(ProductId);
     } catch (error) {
         error.code = 404;
         throw error;
@@ -69,6 +68,21 @@ class Product {
     return new Product(product);
 }
 
+static async findMultiple(ids) {
+  const productIds = ids.map(function(id) {
+    return new mongodb.ObjectId(id);
+  })
+  
+  const products = await db
+    .getDb()
+    .collection('products')
+    .find({ _id: { $in: productIds } })
+    .toArray();
+
+  return products.map(function (productDocument) {
+    return new Product(productDocument);
+  });
+}
 
   static async findAllProducts() {
     const products = await db.getDb().collection("products").find().toArray();
@@ -81,7 +95,7 @@ class Product {
   static async delete(productId) {
     let prdtId;
     try {
-      prdtId = new ObjectId(productId);
+      prdtId = new mongodb.ObjectId(productId);
       // console.log(prdtId);
     } catch (error) {
       error.code = 404;
