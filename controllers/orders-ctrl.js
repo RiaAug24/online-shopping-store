@@ -1,6 +1,8 @@
-const stripe = require("stripe")(
-  "sk_test_51Q3f77Iwrm0QzH7M1XD17logIjjHOpUQPsWAV6MSzs8syhWZScWLGJVam6BH52TVXK2OGDWgeO7M7iml9SW28ol300kMpnfGo3"
-);
+const Stripe = require("stripe");
+require('dotenv').config();
+const apikey = process.env.API_KEY;
+console.log(apikey)
+const stripe = Stripe(apikey);
 const Order = require("../models/order-model");
 const User = require("../models/user-model");
 async function getOrder(req, res) {
@@ -33,25 +35,25 @@ async function addOrder(req, res, next) {
   req.session.cart = null;
 
   // This is your test secret API key.
-   const session = await stripe.checkout.sessions.create({
-      line_items: cart.items.map((item) => {
-        return {
-          price_data: {
-            currency: "inr",
-            product_data: {
-              name: item.product.title,
-            },
-            unit_amount: +item.product.price*100,
+  const session = await stripe.checkout.sessions.create({
+    line_items: cart.items.map((item) => {
+      return {
+        price_data: {
+          currency: "inr",
+          product_data: {
+            name: item.product.title,
           },
-          quantity: item.quantity,
-        };
-      }),
-      mode: "payment",
-      success_url: `http://localhost:3000/orders/success`,
-      cancel_url: `http://localhost:3000/orders/failure`,
-    });
+          unit_amount: +item.product.price * 100,
+        },
+        quantity: item.quantity,
+      };
+    }),
+    mode: "payment",
+    success_url: `http://localhost:3000/orders/success`,
+    cancel_url: `http://localhost:3000/orders/failure`,
+  });
 
-    res.redirect(303, session.url);
+  res.redirect(303, session.url);
 }
 
 function getSuccess(req, res) {
