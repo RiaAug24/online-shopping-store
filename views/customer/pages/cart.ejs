@@ -29,6 +29,9 @@
                 <% } %>
             <% } else { %>  
                 <p class="auth-msg"> Login to purchase your items </p>    
+            <% } %>
+            <% if (locals.isAuth && !(locals.cart.totalPrice)) { %>
+                <p class="auth-msg">Your cart is empty.</p>
             <% } %>  
         </div>
   
